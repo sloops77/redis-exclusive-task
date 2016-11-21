@@ -16,15 +16,15 @@ export default class RedisExclusiveTask {
           .then(() => this.task())
           .delay(this.interval)
           .then(() => this.extendAndRun(lock)) // recurse
-          .catch(() => this.log.info(`@RedisExclusiveTask(${this.taskName}): Unable to extend lock`))
-          .finally(() => this.log.warn(`@RedisExclusiveTask(${this.taskName}): Leaving extendAndUpdate`));
+          .catch(() => RedisExclusiveTask.log.info(`@RedisExclusiveTask(${this.taskName}): Unable to extend lock`))
+          .finally(() => RedisExclusiveTask.log.warn(`@RedisExclusiveTask(${this.taskName}): Leaving extendAndUpdate`));
                         // only on error bail out
     }
 
     lockAndRun() {
-        return this.redlock.lock(`${this.taskName}:run`, this.interval * 2)
+        return RedisExclusiveTask.redlockInstance.lock(`${this.taskName}:run`, this.interval * 2)
             .then((lock) => {
-                log.info(`@RedisExclusiveTask(${this.taskName}): I have the lock!`);
+                RedisExclusiveTask.log.info(`@RedisExclusiveTask(${this.taskName}): I have the lock!`);
                 return this.extendAndRun(lock);
             })
             .catch(() => {});
@@ -32,7 +32,7 @@ export default class RedisExclusiveTask {
 
     static configure(clients, log = console) {
         this.log = log;
-        this.redlock = new Redlock(clients, { retryCount: 0 });
+        this.redlockInstance = new Redlock(clients, { retryCount: 0 });
     }
 
     static run(taskName, task, interval) {
