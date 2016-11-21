@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /Users/arolave/.rbenv/shims:/usr/local/heroku/bin:./bin:/Users/arolave/Library/apache-maven-2.2.1/bin:/Users/arolave/Library/play:/Users/arolave/Library/android-sdk-macosx/tools:/Users/arolave/Library/android-sdk-macosx/platform-tools:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home/bin:/Users/arolave/Library/Trigger Toolkit:/Users/arolave/utils/imobiledevice-macosx
+
+Yarn version: 
+  0.16.1
+
+Node version: 
+  6.6.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "redis-exclusive-task",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "build": "",
+      "release": ""
+    },
+    "main": "dist/index.js",
+    "dependencies": {
+      "redlock": "2.0.0",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+bower manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /Users/arolave/IdeaProjects/redis-exclusive-task/package.json: Unexpected token } in JSON at position 205
+      at Object.parse (native)
+      at /usr/local/lib/node_modules/yarn/lib/util/fs.js:271:57
+      at next (native)
+      at step (/usr/local/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)
+      at /usr/local/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13
