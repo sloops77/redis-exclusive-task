@@ -1,7 +1,6 @@
 {
   "name": "redis-exclusive-task",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "build": "babel src/index.js --out-file dist/index.js --presets node6"
   },
