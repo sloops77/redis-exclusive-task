@@ -1,8 +1,8 @@
 {
   "name": "redis-exclusive-task",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
-    "build": "babel src/index.js --out-file dist/index.js --presets node6"
+    "build": "babel src/index.js --out-file dist/index.js --presets es2015"
   },
   "main": "dist/index.js",
   "dependencies": {
@@ -10,6 +10,6 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-preset-node6": "^11.0.0"
+    "babel-preset-es2015": "^6.18.0"
   }
 }
